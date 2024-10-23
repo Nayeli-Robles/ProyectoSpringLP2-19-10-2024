@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>LISTADO DE PRODUCTOS
+		</title>
+		<style>
+			
+			html{
+				background-color: #c5dec9;
+			}  
+		</style>
+	</head>
+	<body>
+		
+		<h1 align="center">Listado Productos</h1>
+		<h2 align="center">
+			<a th:href="@{/Vistas/RegistrarProducto}" title="'nuevo registro'">Agregar</a>
+		</h2>
+		
+		<table border="2" align="center">
+				<tr>
+					<th>id poducto</th>
+					<th>nombre producto</th>
+					<th>precio producto</th>
+					<th>cantidad producto</th>
+					<th>total producto</th>
+					<th>codbarras producto</th>
+					<th>nrolote producto</th>
+					<th>fechavene producto</th>
+					<th>Acciones</th>
+				</tr>
+			
+			<th:block th:each="p:${listado}">
+				<tr>
+					<td th:text="${p.idproducto}"></td>
+					<td th:text="${p.nomprod}"></td>
+					<td th:text="${p.precio}"></td>
+					<td th:text="${p.cantidad}"></td>
+					<td th:text="${p.total}"></td>
+					<td th:text="${p.codbarras}"></td>
+					<td th:text="${p.nrolote}"></td>
+					<td th:text="${#dates.format(p.fechaven,'dd-MM-yyy')}"></td>
+					<td>
+						<a th:href="@{editarProducto/}+${p.idproducto}" th:text="editar" title="editar Registro"></a>
+						<a th:href="@{EliminarProducto/}+${p.idproducto}" th:text="eliminar" title="eliminar Producto"></a>
+					</td>
+				</tr>
+			</th:block>
+		</table>
+		
+	</body>
+	
+</html>

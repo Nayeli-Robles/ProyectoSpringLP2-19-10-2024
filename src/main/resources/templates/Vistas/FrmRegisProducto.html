@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>Mi primer proyecto
+			con spring boot
+		</title>
+		<style>
+			
+			html{
+				background-color: #c5dec9;
+			}  
+		</style>
+	</head>
+	<body>
+		<h1 align="center">Registrar Producto</h1>
+		
+		<form th:action="@{/Vistas/GuardarProducto}" method="post" th:object="${regpro}">
+			<table border="2" align="center">
+				<input type="hidden" th:field="*{idproducto}">
+				<tr>
+					<td>producto</td>
+					<td><input type="text" th:field="*{nomprod}"></td>
+				</tr>
+				<tr>
+					<td>precio</td>
+					<td><input type="number" th:field="*{nomprod}"></td>
+				</tr>
+				<tr>
+					<td>cantidad</td>
+					<td><input type="number" th:field="*{cantidad}"></td>
+				</tr>
+				<tr>
+					<td>total</td>
+					<td><input type="number" th:field="*{total}"></td>
+				</tr>
+				<tr>
+					<td>codigo barras</td>
+					<td><input type="text" th:field="*{codbarras}"></td>
+				</tr>
+				<tr>
+					<td>numero lote</td>
+					<td><input type="text" th:field="*{nrolote}"></td>
+				</tr>
+				<tr>
+					<td>fecha vencimiento</td>
+					<td><input type="date" th:field="*{fechaven}"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+					<input type="submit" value="registrarProductos"></td>
+				</tr>
+			</table>
+		</form>
+		
+	</body>
+	
+</html>
